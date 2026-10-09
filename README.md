@@ -163,42 +163,7 @@ list at the end of the answer.
 
 ---
 
-## 8. Known Limitations
 
-- **Only Python (`.py`) files are indexed.** Other languages aren't chunked
-  or searched.
-- **The GitHub tab requires `git`** to be installed and on your system PATH.
-  Private repositories aren't supported (no credential/token flow).
-- **Coverage checking is heuristic, not semantic.** The orchestrator requires
-  every meaningful term in each detected information need to have a matching
-  retrieved term, but this is still keyword/root matching rather than true
-  language understanding.
-- **AST analysis is Python-only.** Exact symbols, imports, callers, callees,
-  and class methods are built from parseable `.py` files. Files with syntax
-  errors are skipped by the AST index but remain available to text chunking.
-- **Dynamic dispatch is limited.** Calls whose concrete receiver cannot be
-  identified statically remain unresolved; method resolution succeeds only
-  when the available source evidence identifies an unambiguous implementation.
-- **Citation validation is structural.** It verifies that cited files and line
-  ranges exist and that the source was included in retrieved evidence. It does
-  not prove full semantic entailment of every generated claim.
-- **No conversation memory.** Each question is answered independently; the
-  assistant does not remember earlier questions in the same session. This
-  is a deliberate scope boundary, not a bug.
-- **Existing indexes built before this citation system will cite by
-  filename only** (no function name, class name, or line numbers) until
-  re-indexed, since that metadata didn't exist in older indexes.
-- **`langchain`/`langchain-community` versions are pinned for compatibility**
-  with the current text-splitting and community embedding/FAISS integrations.
-  If you upgrade either package, rerun the regression suite and the FAISS
-  index/query smoke test before changing import paths.
-- **First-time model download**: the embedding model
-  (`sentence-transformers/all-MiniLM-L6-v2`) and any Ollama model you pull
-  are both downloaded on first use, not during `pip install` — make sure
-  you have internet access the first time you index a repo and the first
-  time you run `ollama pull`.
-
----
 
 ## 9. Project Structure
 
