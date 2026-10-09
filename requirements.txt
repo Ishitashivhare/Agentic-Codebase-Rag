@@ -1,0 +1,15 @@
+# Codebase RAG Assistant - Python dependencies
+#
+# Tested against Python 3.10-3.11. See README.md for full setup
+# instructions, including Ollama (a separate, non-pip install).
+
+streamlit>=1.30,<2.0
+
+# NOTE on import paths: embeddings and FAISS use langchain-community's
+# maintained integrations. The langchain <0.2 pin remains because the
+# text splitter and other legacy imports in this project use that API.
+langchain>=0.1.0,<0.2.0
+langchain-community>=0.0.20,<0.1.0
+
+faiss-cpu>=1.7.4
+sentence-transformers>=2.2.2

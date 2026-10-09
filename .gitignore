@@ -1,0 +1,21 @@
+# Python environments and caches
+venv/
+.venv/
+env/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+.streamlit/secrets.toml
+
+# Generated indexes and downloaded repository caches
+/vector_index.faiss/
+data/github_repos/
+
+# Local release artifacts
+*.zip
