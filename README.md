@@ -12,6 +12,23 @@ The agent also supports exact symbol lookup, AST-based relationship analysis,
 bounded caller/callee traversal, concrete method resolution when a method is
 unambiguous, evidence sufficiency checks, and citation validation.
 
+##  Key Features
+
+- **Agentic RAG Pipeline:** Uses a Planner Agent and Agent Orchestrator to plan retrieval, evaluate evidence sufficiency, and perform targeted follow-up searches when needed.
+- **Multi-Tool Retrieval:** Combines semantic code search, exact symbol lookup, file reading, file discovery, and repository structure exploration through a centralized Tool Registry.
+- **AST-Aware Code Chunking:** Splits Python code along function and class boundaries to preserve structural context and improve retrieval precision.
+- **Code Relationship Analysis:** Identifies function definitions, callers, callees, imports, and class methods using Python's Abstract Syntax Tree (AST).
+- **Call-Graph Traversal:** Supports bounded traversal of caller/callee relationships to investigate how functions interact across a codebase.
+- **Concrete Method Resolution:** Resolves a method to its implementation when the target is unambiguous.
+- **Evidence-Based Answer Generation:** Checks whether retrieved evidence covers the user's question before generating a final response.
+- **Deterministic Source Citations:** Produces file, function, class, and line-range references grounded in repository content.
+- **Citation Validation:** Validates cited files, line ranges, and supporting evidence to reduce unsupported answers.
+- **Local LLM Inference:** Uses Llama 3 through Ollama, allowing questions to be processed locally without requiring a hosted LLM API.
+- **FAISS Vector Search:** Uses semantic embeddings and similarity search to retrieve relevant code snippets.
+- **Repository Flexibility:** Supports indexing local Python repositories and cloning public GitHub repositories.
+- **Cached Index Management:** Allows previously indexed repositories to be reused or cleared.
+- **Automated Testing:** Includes deterministic tests for agent workflows, code relationships, traversal, edge cases, and citation behavior.
+
 ---
 
 ## 1. Prerequisites
